@@ -1402,8 +1402,12 @@ public final class tnvt implements Runnable {
             //     screen position.
             //  The setPendingInsert is the where the cursor position will be
             //  displayed after the restore.
+            // zzz patch: return back to previous home position instead of current
+            // screen52.setPendingInsert(true, screen52.getRow(pos + cols), screen52
+            //         .getCol(pos + cols));
             screen52.setPendingInsert(true, screen52.getRow(pos + cols), screen52
-                    .getCol(pos + cols));
+                    .getCol(hPos + cols));
+            // zzz endpatch
             //  We need to offset the pos by -1 since the position is 1,1 based
             //    and the goto_XY is 0,0 based.
             screen52.goto_XY(pos - 1);
